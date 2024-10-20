@@ -1,19 +1,22 @@
 {
-    // Use IntelliSense para saber los atributos posibles.
-    // Mantenga el puntero para ver las descripciones de los existentes atributos.
-    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+    // Configuración del depurador
     "version": "0.2.0",
     "configurations": [
         {
             "name": "Depurador de Python: Django",
-            "type": "debugpy",
+            "type": "python",
             "request": "launch",
+            "program": "${workspaceFolder}/backend/manage.py",  // Asegúrate que la ruta sea correcta
             "args": [
-                "runserver"
+                "runserver",  // Inicia el servidor de Django
+                "0.0.0.0:8000"  // Puedes cambiar el puerto si es necesario
             ],
             "django": true,
-            "autoStartBrowser": false,
-            "program": "${workspaceFolder}\\backend\\manage.py"
+            "autoReload": true,  // Habilita la recarga automática
+            "justMyCode": true,  // Depura solo tu código, no el de las bibliotecas de terceros
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/venv"  // Ruta de tu entorno virtual
+            }
         }
     ]
 }
